@@ -1,4 +1,4 @@
-![CI](https://github.com/eugeshha/working-env/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/eugeshha/gnome-game/actions/workflows/web.yml/badge.svg)
 
 # Webpack5
 
