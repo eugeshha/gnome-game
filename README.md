@@ -1,4 +1,4 @@
-![CI](https://github.com/eugeshha/working-env/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/eugeshha/gnome-game/actions/workflows/web.yml/badge.svg)
 
 # Webpack5
 
@@ -8,4 +8,4 @@
 
 # Перейти на страницу для тестов
 
-[Веб](https://eugeshha.github.io/dom-game/)
+[Веб](https://eugeshha.github.io/gnome-game/)
