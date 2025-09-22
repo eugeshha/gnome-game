@@ -1,9 +1,7 @@
-import Game from './Game.js';
-
-let game;
+import Game from "./Game.js";
 
 function initGame() {
-  game = new Game();
+  new Game();
 }
 
 document.addEventListener("DOMContentLoaded", initGame);

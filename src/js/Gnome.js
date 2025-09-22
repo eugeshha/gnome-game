@@ -9,10 +9,10 @@ export default class Gnome {
   }
 
   create() {
-    this.element = document.createElement('img');
+    this.element = document.createElement("img");
     this.element.src = gnomeImage;
-    this.element.alt = 'Gnome';
-    this.element.className = 'gnome';
+    this.element.alt = "Gnome";
+    this.element.className = "gnome";
     return this.element;
   }
 
@@ -23,7 +23,7 @@ export default class Gnome {
 
     this.currentCell = cell;
     this.isVisible = true;
-    
+
     if (!this.element) {
       this.create();
     }
@@ -34,14 +34,14 @@ export default class Gnome {
       onHit();
     };
 
-    this.element.addEventListener('click', this.clickHandler);
+    this.element.addEventListener("click", this.clickHandler);
     cell.append(this.element);
   }
 
   hide() {
     if (this.element && this.currentCell) {
       if (this.clickHandler) {
-        this.element.removeEventListener('click', this.clickHandler);
+        this.element.removeEventListener("click", this.clickHandler);
       }
       this.element.remove();
       this.currentCell = null;

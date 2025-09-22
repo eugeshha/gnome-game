@@ -8,12 +8,12 @@ export default class GameField {
   }
 
   init() {
-    this.container.innerHTML = '';
+    this.container.innerHTML = "";
     this.cells = [];
-    
+
     for (let i = 0; i < this.totalCells; i++) {
-      const cell = document.createElement('div');
-      cell.className = 'cell';
+      const cell = document.createElement("div");
+      cell.className = "cell";
       cell.dataset.index = i;
       this.container.append(cell);
       this.cells.push(cell);
@@ -30,8 +30,8 @@ export default class GameField {
   }
 
   clearAll() {
-    this.cells.forEach(cell => {
-      cell.innerHTML = '';
+    this.cells.forEach((cell) => {
+      cell.innerHTML = "";
     });
   }
 }

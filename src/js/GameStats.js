@@ -3,9 +3,9 @@ export default class GameStats {
     this.score = 0;
     this.misses = 0;
     this.maxMisses = 5;
-    this.scoreElement = document.getElementById('score');
-    this.missesElement = document.getElementById('misses');
-    this.finalScoreElement = document.getElementById('finalScore');
+    this.scoreElement = document.getElementById("score");
+    this.missesElement = document.getElementById("misses");
+    this.finalScoreElement = document.getElementById("finalScore");
   }
 
   reset() {
