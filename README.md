@@ -8,4 +8,4 @@
 
 # Перейти на страницу для тестов
 
-[Веб](https://eugeshha.github.io/dom-game/)
+[Веб](https://eugeshha.github.io/gnome-game/)
