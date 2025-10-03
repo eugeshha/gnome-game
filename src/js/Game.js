@@ -67,9 +67,35 @@ export default class Game {
     let targetCell;
     const currentGnomeCell = this.gnome.getCurrentCell();
 
-    do {
+    if (this.gameField.totalCells > 1 && currentGnomeCell) {
+      do {
+        targetCell = this.gameField.getRandomCell();
+      } while (targetCell === currentGnomeCell);
+    } else {
       targetCell = this.gameField.getRandomCell();
-    } while (targetCell === currentGnomeCell && this.gameField.totalCells > 1);
+    }
+
+    this.gnome.show(targetCell, () => this.onGnomeHit(targetCell));
+
+    this.gnomeTimer = setTimeout(() => {
+      if (this.isGameActive && this.gnome.isVisible) {
+        this.onGnomeMiss();
+      }
+    }, this.gnomeTimeout);
+  }
+
+  spawnGnomeWithPreviousCell(previousCell) {
+    if (!this.isGameActive) return;
+
+    let targetCell;
+
+    if (this.gameField.totalCells > 1 && previousCell) {
+      do {
+        targetCell = this.gameField.getRandomCell();
+      } while (targetCell === previousCell);
+    } else {
+      targetCell = this.gameField.getRandomCell();
+    }
 
     this.gnome.show(targetCell, () => this.onGnomeHit(targetCell));
 
@@ -83,12 +109,17 @@ export default class Game {
   onGnomeHit(cell) {
     if (!this.isGameActive) return;
 
+    if (this.gnomeTimer) {
+      clearTimeout(this.gnomeTimer);
+      this.gnomeTimer = null;
+    }
+
     this.stats.addScore();
     this.showHitEffect(cell);
+
     this.gnome.hide();
 
-    // Гоблин исчезает и сразу появляется в новой ячейке
-    this.spawnGnome();
+    this.spawnGnomeWithPreviousCell(cell);
   }
 
   onGnomeMiss() {
@@ -100,7 +131,6 @@ export default class Game {
     if (isGameOver) {
       this.endGame();
     } else {
-      // Фиксированный интервал - ровно 1 секунда
       this.gnomeTimer = setTimeout(() => this.spawnGnome(), this.gnomeTimeout);
     }
   }
