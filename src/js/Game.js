@@ -125,13 +125,14 @@ export default class Game {
   onGnomeMiss() {
     if (!this.isGameActive) return;
 
+    const previousCell = this.gnome.getCurrentCell();
     this.gnome.hide();
     const isGameOver = this.stats.addMiss();
 
     if (isGameOver) {
       this.endGame();
     } else {
-      this.gnomeTimer = setTimeout(() => this.spawnGnome(), this.gnomeTimeout);
+      this.gnomeTimer = setTimeout(() => this.spawnGnomeWithPreviousCell(previousCell), this.gnomeTimeout);
     }
   }
 
